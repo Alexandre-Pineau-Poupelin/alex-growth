@@ -8,7 +8,7 @@ export const siteConfig = {
   email: "alexandre.pineaupoupelin@gmail.com",
   linkedin: "https://linkedin.com/in/alexandre-pineau-poupelin",
   location: "Hérault, France",
-  availability: "[À compléter]",
+  availability: "Disponible à partir du 13 septembre 2026",
   // Priorité : domaine custom explicite > URL de prod Vercel auto-détectée > placeholder local.
   // NEXT_PUBLIC_SITE_URL est à définir dans les env vars Vercel une fois un domaine choisi.
   url:
