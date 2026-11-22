@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { siteConfig } from "@/data/content";
+import { content, siteConfig } from "@/data/content";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -44,7 +44,7 @@ export default function OpengraphImage() {
             {siteConfig.title}
           </div>
           <div style={{ fontSize: 26, color: "#8A8A8A", marginTop: 24, maxWidth: 900 }}>
-            {siteConfig.tagline}
+            {content.fr.hero.subtitle}
           </div>
         </div>
       </div>
