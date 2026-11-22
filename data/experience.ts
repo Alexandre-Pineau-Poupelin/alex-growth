@@ -3,6 +3,8 @@ export type ExperienceEntry = {
   company: string;
   period: string;
   highlight: string;
+  /** Lien optionnel vers le détail ailleurs sur la page (ex. les études de cas). */
+  detailHref?: string;
 };
 
 // Timeline condensée. Revolte est déjà détaillé dans les Case Studies ci-dessus —
@@ -14,7 +16,9 @@ export const experience: ExperienceEntry[] = [
     role: "Growth Marketing Manager — Paid Acquisition",
     company: "Revolte / E-Garages",
     period: "Fév 2025 – Jan 2026",
-    highlight: "Détails dans les Case Studies ci-dessus.",
+    highlight:
+      "Système d'acquisition B2B automatisé : €368K de CA généré, +119% de trafic SEO, ROAS moyen de 9x.",
+    detailHref: "#case-studies",
   },
   {
     role: "Marketing & Operations Manager / Deputy Director",

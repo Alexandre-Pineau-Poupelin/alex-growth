@@ -8,7 +8,11 @@ export const siteConfig = {
   email: "alexandre.pineaupoupelin@gmail.com",
   linkedin: "https://linkedin.com/in/alexandre-pineau-poupelin",
   location: "Hérault, France",
-  availability: "Disponible à partir du 13 septembre 2026",
+  // Affiché dans le Hero (badge) et dans la section Contact. À tenir à jour : une date
+  // passée donne l'impression d'un site abandonné.
+  availability: "Disponible immédiatement",
+  availabilityDetail: "CDI · France ou remote",
+  calendly: "https://calendly.com/alexandre-pineaupoupelin/30min",
   // Priorité : domaine custom explicite > URL de prod Vercel auto-détectée > placeholder local.
   // NEXT_PUBLIC_SITE_URL est à définir dans les env vars Vercel une fois un domaine choisi.
   url:
@@ -20,11 +24,13 @@ export const siteConfig = {
     "Growth Marketing Manager spécialisé dans la conception de systèmes d'acquisition B2B automatisés — de la génération de leads à la conversion en revenu mesurable.",
 };
 
+// Libellés qui nomment le contenu réel de chaque section. "Parcours" est la section
+// qu'un recruteur cherche en premier : elle doit être dans la navigation.
 export const nav = [
-  { label: "About", href: "#about" },
-  { label: "Case Studies", href: "#case-studies" },
-  { label: "Experiments", href: "#experiments" },
-  { label: "Stack", href: "#stack" },
+  { label: "Méthode", href: "#about" },
+  { label: "Études de cas", href: "#case-studies" },
+  { label: "Parcours", href: "#experience" },
+  { label: "Compétences", href: "#skills" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -33,7 +39,8 @@ export const hero = {
   tagline: "Building scalable growth systems.",
   description:
     "Je conçois, automatise et optimise des funnels d'acquisition B2B complets — de la génération de leads à la conversion en revenu mesurable.",
-  ctaLabel: "alexandre.pineaupoupelin@gmail.com",
+  primaryCta: "Réserver un échange de 30 min",
+  secondaryCta: "Écrire un email",
 };
 
 // Bandeau de preuve sous le Hero — uniquement des chiffres directement sourcés du CV.
@@ -90,11 +97,13 @@ export const systemPipeline = {
 };
 
 export const contact = {
-  heading: "Closing",
+  heading: "Contact",
   statement: "I don't optimize ads. I optimize how companies acquire customers.",
   subtext:
     "Ouvert aux postes de Growth Marketing Manager, Marketing Ops et Demand Generation — France ou remote.",
   availabilityLabel: "Disponibilité",
   availability: siteConfig.availability,
+  calendlyLabel: "Réserver un échange de 30 min",
   emailLabel: "Écrire un email",
+  locationLabel: "Localisation",
 };

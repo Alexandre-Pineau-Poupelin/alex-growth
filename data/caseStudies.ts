@@ -25,7 +25,10 @@ export type CaseStudy = {
     results: string;
     learning: string;
   };
+  /** Note interne : capture à ajouter plus tard. Jamais affichée sur le site. */
   screenshotPlaceholder: string;
+  /** Capture réelle (dans public/screenshots/). Affichée dans le détail quand elle existe. */
+  screenshot?: { src: string; alt: string };
 };
 
 // Les 3 études de cas. resultType contrôle l'affichage du badge de crédibilité —
