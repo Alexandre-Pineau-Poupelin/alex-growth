@@ -8,6 +8,7 @@ import { spring } from "@/lib/motion";
 type CopyEmailButtonProps = {
   email: string;
   className?: string;
+  labels: { copy: string; copied: string; copiedLive: string };
 };
 
 /**
@@ -15,7 +16,7 @@ type CopyEmailButtonProps = {
  * navigateur, pas de logiciel de messagerie configuré). Ce bouton copie l'adresse et
  * confirme visuellement que c'est fait.
  */
-export function CopyEmailButton({ email, className }: CopyEmailButtonProps) {
+export function CopyEmailButton({ email, className, labels }: CopyEmailButtonProps) {
   const [copied, setCopied] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
 
@@ -81,9 +82,9 @@ export function CopyEmailButton({ email, className }: CopyEmailButtonProps) {
           )}
         </AnimatePresence>
       </span>
-      <span>{copied ? "Adresse copiée" : "Copier l'adresse email"}</span>
+      <span>{copied ? labels.copied : labels.copy}</span>
       <span className="sr-only" aria-live="polite">
-        {copied ? "Adresse email copiée dans le presse-papiers" : ""}
+        {copied ? labels.copiedLive : ""}
       </span>
     </button>
   );
