@@ -35,7 +35,7 @@ export const experience: Record<Locale, ExperienceEntry[]> = {
       detailHref: "#etudes-de-cas",
     },
     {
-      role: "Marketing & Operations Manager / Deputy Director",
+      role: "Marketing & Operations Manager, Directeur adjoint",
       company: "Le Wagon Grand Ouest, Nantes et Rennes",
       period: "Nov. 2023 – févr. 2025",
       highlights: [
@@ -92,7 +92,7 @@ export const experience: Record<Locale, ExperienceEntry[]> = {
       company: "Le Wagon Grand Ouest, Nantes and Rennes",
       period: "Nov 2023 – Feb 2025",
       highlights: [
-        "Two-person team results over one year: 1,087 MQLs, 636 SQLs, 51 clients, €326K in revenue.",
+        "Results as a two-person team, over one year: 1,087 MQLs, 636 SQLs, 51 clients, €326K in revenue.",
         "Over 70 events and partnerships in 12 months.",
       ],
     },

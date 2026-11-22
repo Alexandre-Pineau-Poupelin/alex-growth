@@ -1,4 +1,4 @@
-// Les cinq études de cas, en trois temps : problème, ce qui a été construit, comment.
+// Les trois études de cas, en trois temps : problème, ce qui a été construit, comment.
 // Les chiffres doivent rester identiques à ceux du CV (brief du 22 novembre 2026).
 import type { Locale } from "@/data/i18n";
 import type { Stat } from "@/data/content";
@@ -115,33 +115,6 @@ export const caseStudies: Record<Locale, CaseStudy[]> = {
       result:
         "SEA, SEO et emailing sont suivis dans un même tracking. Les leads déclarés par les plateformes sont recoupés avec les formulaires réellement reçus, chaque vente est rattachée à sa source, et le reporting de tous les canaux est produit avec Claude.",
     },
-    {
-      id: "seo-geo-ux-academie",
-      index: "04",
-      title: "SEO, GEO et UX de l'Académie Revolte",
-      company: "Revolte",
-      period: "2025",
-      problem:
-        "Les campagnes Google Ads amenaient du trafic vers les formations de l'Académie, mais les visiteurs remplissaient peu les formulaires. Et la structure du site rendait mal l'expertise visible, sur Google comme dans les réponses des assistants IA.",
-      built:
-        "Un audit SEO et UX, un tracking des points d'abandon, des pages et formulaires simplifiés, et une architecture de contenus organisée comme le métier : expertise, puis marques, modèles et pannes fréquentes par modèle.",
-      how: [
-        "Audit SEO et UX",
-        "GTM (clics, CTA)",
-        "GA4 (tunnel du formulaire)",
-        "Refonte des pages",
-        "Architecture de contenus",
-        "Signaux d'autorité",
-        "Articles de blog",
-      ],
-      stats: [
-        { value: "+119 %", label: "trafic organique" },
-        { value: "41 %", label: "des leads venus du SEO" },
-        { value: "25 à 40", label: "leads par mois en inbound" },
-      ],
-      result:
-        "Un pipeline inbound de 25 à 40 leads par mois, un trafic organique en hausse de 119 %, et le SEO à l'origine de 41 % des leads.",
-    },
   ],
 
   en: [
@@ -235,33 +208,6 @@ export const caseStudies: Record<Locale, CaseStudy[]> = {
       stats: [],
       result:
         "Paid search, SEO and email are tracked in one setup. Leads reported by the ad platforms are cross-checked against the forms actually received, every sale is tied to its source, and reporting for every channel is produced with Claude.",
-    },
-    {
-      id: "seo-geo-ux-academie",
-      index: "04",
-      title: "SEO, GEO and UX for the Revolte Academy",
-      company: "Revolte",
-      period: "2025",
-      problem:
-        "Google Ads campaigns brought traffic to the Academy's training pages, but few visitors completed the forms. And the site structure made the expertise hard to see, on Google and in AI assistants' answers.",
-      built:
-        "An SEO and UX audit, tracking of drop-off points, simpler pages and forms, and a content architecture organized like the business: expertise, then brands, models and common faults for each model.",
-      how: [
-        "SEO and UX audit",
-        "GTM (clicks, CTAs)",
-        "GA4 (form funnel)",
-        "Page redesign",
-        "Content architecture",
-        "Authority signals",
-        "Blog articles",
-      ],
-      stats: [
-        { value: "+119%", label: "organic traffic" },
-        { value: "41%", label: "of leads from SEO" },
-        { value: "25 to 40", label: "inbound leads per month" },
-      ],
-      result:
-        "An inbound pipeline of 25 to 40 leads per month, organic traffic up 119%, and SEO behind 41% of leads.",
     },
   ],
 };

@@ -39,6 +39,7 @@ export type SiteContent = {
     badge: string;
     subtitle: string;
     primaryCta: string;
+    secondaryCta: string;
     tags: string[];
     proof: Stat[];
   };
@@ -72,6 +73,7 @@ export type SiteContent = {
     statement: string;
     roles: string;
     calendlyLabel: string;
+    emailLabel: string;
     availabilityLabel: string;
     availability: string;
     locationLabel: string;
@@ -133,6 +135,7 @@ export const content: Record<Locale, SiteContent> = {
       subtitle:
         "Je construis des systèmes d'acquisition, de la pub à la signature. SEA, SEO, tracking, CRM et automatisation IA.",
       primaryCta: "Réserver 30 min",
+      secondaryCta: "Écrire un email",
       tags: [
         "Growth Marketing",
         "Acquisition payante (Google Ads, Meta Ads)",
@@ -214,7 +217,7 @@ export const content: Record<Locale, SiteContent> = {
       eyebrow: "Études de cas",
       title: "Ce que j'ai construit",
       description:
-        "Quatre cas, chacun en trois temps : le problème, ce que j'ai construit, et comment. Les chiffres sont ceux de mon CV.",
+        "Trois cas, chacun en trois temps : le problème, ce que j'ai construit, et comment. Les chiffres sont ceux de mon CV.",
     },
     caseLabels: {
       problem: "Problème",
@@ -243,6 +246,7 @@ export const content: Record<Locale, SiteContent> = {
       roles:
         "Je cherche un CDI de Growth Marketing Manager, Responsable acquisition, Marketing Ops ou Demand Generation, dans l'Hérault ou en télétravail.",
       calendlyLabel: "Réserver un échange de 30 min",
+      emailLabel: "Écrire un email",
       availabilityLabel: "Disponibilité",
       availability: "Disponible · CDI",
       locationLabel: "Localisation",
@@ -303,6 +307,7 @@ export const content: Record<Locale, SiteContent> = {
       subtitle:
         "I build acquisition systems, from the ad to the signed deal. Paid search, SEO, tracking, CRM and AI automation.",
       primaryCta: "Book 30 min",
+      secondaryCta: "Send an email",
       tags: [
         "Growth Marketing",
         "Paid acquisition (Google Ads, Meta Ads)",
@@ -330,7 +335,7 @@ export const content: Record<Locale, SiteContent> = {
         { value: "x9", label: "ROAS up to x9 on Google Ads (Revolte)" },
         {
           value: "€326K",
-          label: "Le Wagon, two-person team results over one year: 1,087 MQLs, 51 clients",
+          label: "Le Wagon, results as a two-person team, over one year: 1,087 MQLs, 51 clients",
         },
       ],
     },
@@ -384,7 +389,7 @@ export const content: Record<Locale, SiteContent> = {
       eyebrow: "Case studies",
       title: "What I built",
       description:
-        "Four cases, each in three parts: the problem, what I built, and how. The figures match my résumé.",
+        "Three cases, each in three parts: the problem, what I built, and how. The figures match my résumé.",
     },
     caseLabels: {
       problem: "Problem",
@@ -413,6 +418,7 @@ export const content: Record<Locale, SiteContent> = {
       roles:
         "I'm looking for a permanent role as Growth Marketing Manager, Head of Acquisition, Marketing Ops or Demand Generation, in Hérault (France) or remote.",
       calendlyLabel: "Book a 30-minute call",
+      emailLabel: "Send an email",
       availabilityLabel: "Availability",
       availability: "Available · Permanent role",
       locationLabel: "Location",
