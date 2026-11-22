@@ -3,7 +3,13 @@
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 
-export function ThemeToggle() {
+export function ThemeToggle({
+  labelToLight,
+  labelToDark,
+}: {
+  labelToLight: string;
+  labelToDark: string;
+}) {
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -20,7 +26,7 @@ export function ThemeToggle() {
       type="button"
       onClick={() => setTheme(isDark ? "light" : "dark")}
       className="flex h-10 w-10 items-center justify-center rounded-md border border-border text-fg transition-[background-color,transform] duration-100 hover:bg-surface active:scale-95"
-      aria-label={isDark ? "Activer le thème clair" : "Activer le thème sombre"}
+      aria-label={isDark ? labelToLight : labelToDark}
     >
       {isDark ? (
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true">
