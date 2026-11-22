@@ -1,19 +1,22 @@
-import { contact, siteConfig } from "@/data/content";
+import { content, siteConfig } from "@/data/content";
+import type { Locale } from "@/data/i18n";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import { CopyEmailButton } from "@/components/ui/CopyEmailButton";
 
-export function Contact() {
+export function Contact({ locale }: { locale: Locale }) {
+  const { contact, ui } = content[locale];
+
   return (
     <section id="contact" className="scroll-mt-16 bg-surface">
       <div className="mx-auto max-w-content px-6 py-24 sm:py-32">
         <Reveal>
-          <p className="font-mono text-sm text-muted">{contact.heading}</p>
-          <p className="mt-4 max-w-prose text-3xl font-semibold leading-tight tracking-[-0.025em] text-fg sm:text-5xl">
+          <p className="font-mono text-sm text-muted">{contact.eyebrow}</p>
+          <p className="mt-4 max-w-3xl text-3xl font-semibold leading-tight tracking-[-0.025em] text-fg sm:text-5xl">
             {contact.statement}
           </p>
           <p className="mt-6 max-w-prose text-base leading-relaxed text-muted sm:text-lg">
-            {contact.subtext}
+            {contact.roles}
           </p>
         </Reveal>
 
@@ -31,7 +34,11 @@ export function Contact() {
             <Button href={`mailto:${siteConfig.email}`} variant="outline" className="px-6 py-3">
               {contact.emailLabel}
             </Button>
-            <CopyEmailButton email={siteConfig.email} className="-ml-3 px-3 py-3 text-muted sm:ml-0" />
+            <CopyEmailButton
+              email={siteConfig.email}
+              className="-ml-3 px-3 py-3 text-muted sm:ml-0"
+              labels={{ copy: ui.copyEmail, copied: ui.emailCopied, copiedLive: ui.emailCopiedLive }}
+            />
           </div>
         </Reveal>
 
@@ -50,7 +57,7 @@ export function Contact() {
             </div>
             <div>
               <dt className="text-muted">{contact.locationLabel}</dt>
-              <dd className="mt-1 text-fg">{siteConfig.location}</dd>
+              <dd className="mt-1 text-fg">{contact.location}</dd>
             </div>
             <div>
               <dt className="text-muted">LinkedIn</dt>

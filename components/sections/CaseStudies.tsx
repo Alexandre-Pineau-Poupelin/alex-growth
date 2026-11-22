@@ -1,24 +1,28 @@
 import { caseStudies } from "@/data/caseStudies";
+import { content } from "@/data/content";
+import type { Locale } from "@/data/i18n";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CaseStudyCard } from "@/components/case-study/CaseStudyCard";
 import { Reveal } from "@/components/ui/Reveal";
 
-export function CaseStudies() {
+export function CaseStudies({ locale }: { locale: Locale }) {
+  const heading = content[locale].caseStudiesHeading;
+
   return (
-    <section id="case-studies" className="scroll-mt-16 border-b border-border">
+    <section id="etudes-de-cas" className="scroll-mt-16 border-b border-border">
       <div className="mx-auto max-w-content px-6 py-20 sm:py-28">
         <Reveal>
           <SectionHeading
-            eyebrow="Travaux choisis"
-            title="Études de cas"
-            description="Trois façons dont j'ai résolu un problème d'acquisition ou de conversion — un résultat mesuré, un résultat qualitatif assumé, et une initiative stratégique en cours."
+            eyebrow={heading.eyebrow}
+            title={heading.title}
+            description={heading.description}
           />
         </Reveal>
 
         <div className="mt-12 space-y-8">
-          {caseStudies.map((cs, i) => (
-            <Reveal key={cs.id} delay={i * 0.05}>
-              <CaseStudyCard caseStudy={cs} />
+          {caseStudies[locale].map((cs) => (
+            <Reveal key={cs.id}>
+              <CaseStudyCard caseStudy={cs} locale={locale} />
             </Reveal>
           ))}
         </div>
