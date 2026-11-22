@@ -7,7 +7,7 @@ export function Skills() {
     <section id="skills" className="scroll-mt-16 border-b border-border">
       <div className="mx-auto max-w-content px-6 py-20 sm:py-28">
         <Reveal>
-          <SectionHeading eyebrow="Capabilities" title="Compétences" />
+          <SectionHeading eyebrow="Savoir-faire" title="Compétences" />
         </Reveal>
 
         <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">

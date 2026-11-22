@@ -8,9 +8,9 @@ export function Experience() {
       <div className="mx-auto max-w-content px-6 py-20 sm:py-28">
         <Reveal>
           <SectionHeading
-            eyebrow="Timeline"
-            title="Experience"
-            description="Le détail de Revolte est dans les Case Studies ci-dessus. Le reste du parcours, en bref."
+            eyebrow="Parcours"
+            title="Expérience"
+            description="Du copywriting au growth : chaque poste a ajouté une brique au système."
           />
         </Reveal>
 
@@ -23,6 +23,14 @@ export function Experience() {
               <p className="mt-2 max-w-prose text-sm leading-relaxed text-muted">
                 {entry.highlight}
               </p>
+              {entry.detailHref ? (
+                <a
+                  href={entry.detailHref}
+                  className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-fg underline decoration-border underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+                >
+                  Voir les études de cas <span aria-hidden="true">↑</span>
+                </a>
+              ) : null}
             </Reveal>
           ))}
         </ol>

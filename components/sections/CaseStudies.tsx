@@ -9,8 +9,8 @@ export function CaseStudies() {
       <div className="mx-auto max-w-content px-6 py-20 sm:py-28">
         <Reveal>
           <SectionHeading
-            eyebrow="Selected work"
-            title="Case Studies"
+            eyebrow="Travaux choisis"
+            title="Études de cas"
             description="Trois façons dont j'ai résolu un problème d'acquisition ou de conversion — un résultat mesuré, un résultat qualitatif assumé, et une initiative stratégique en cours."
           />
         </Reveal>

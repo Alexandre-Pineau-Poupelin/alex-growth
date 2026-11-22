@@ -8,7 +8,7 @@ export function Stack() {
     <section id="stack" className="scroll-mt-16 border-b border-border">
       <div className="mx-auto max-w-content px-6 py-20 sm:py-28">
         <Reveal>
-          <SectionHeading eyebrow="Tools" title="Stack & outils" />
+          <SectionHeading eyebrow="Outils" title="Stack & outils" />
         </Reveal>
 
         <div className="mt-12 grid gap-10 sm:grid-cols-3">

@@ -7,7 +7,7 @@ export function HowIWork() {
     <section id="about" className="scroll-mt-16 border-b border-border">
       <div className="mx-auto max-w-content px-6 py-20 sm:py-28">
         <Reveal>
-          <SectionHeading eyebrow="About" title="Comment je travaille" />
+          <SectionHeading eyebrow="Méthode" title="Comment je travaille" />
         </Reveal>
 
         <ul className="mt-12 grid gap-10 sm:grid-cols-2">

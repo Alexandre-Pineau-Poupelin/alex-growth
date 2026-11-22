@@ -7,7 +7,7 @@ export function Education() {
     <section id="education" className="scroll-mt-16 border-b border-border">
       <div className="mx-auto max-w-content px-6 py-20 sm:py-28">
         <Reveal>
-          <SectionHeading eyebrow="Background" title="Formation" />
+          <SectionHeading eyebrow="Diplômes" title="Formation" />
         </Reveal>
 
         <ol className="mt-12 space-y-6">

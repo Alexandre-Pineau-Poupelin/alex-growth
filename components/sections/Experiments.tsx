@@ -9,13 +9,13 @@ export function Experiments() {
       <div className="mx-auto max-w-content px-6 py-20 sm:py-28">
         <Reveal>
           <SectionHeading
-            eyebrow="Secondary work"
-            title="Experiments"
+            eyebrow="Travaux annexes"
+            title="Expérimentations"
             description="Travaux plus courts, en support des systèmes présentés plus haut."
           />
         </Reveal>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {experiments.map((project, i) => (
             <Reveal
               key={project.title}
@@ -32,7 +32,7 @@ export function Experiments() {
               </div>
             </Reveal>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );
