@@ -3,12 +3,15 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { buttonClasses } from "@/components/ui/Button";
+
+type Variant = "outline" | "ghost";
 import { spring } from "@/lib/motion";
 
 type CopyEmailButtonProps = {
   email: string;
   className?: string;
   labels: { copy: string; copied: string; copiedLive: string };
+  variant?: Variant;
 };
 
 /**
@@ -16,7 +19,7 @@ type CopyEmailButtonProps = {
  * navigateur, pas de logiciel de messagerie configuré). Ce bouton copie l'adresse et
  * confirme visuellement que c'est fait.
  */
-export function CopyEmailButton({ email, className, labels }: CopyEmailButtonProps) {
+export function CopyEmailButton({ email, className, labels, variant = "ghost" }: CopyEmailButtonProps) {
   const [copied, setCopied] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
 
@@ -36,7 +39,7 @@ export function CopyEmailButton({ email, className, labels }: CopyEmailButtonPro
   }
 
   return (
-    <button type="button" onClick={copy} className={buttonClasses("ghost", className)}>
+    <button type="button" onClick={copy} className={buttonClasses(variant, className)}>
       <span className="relative inline-flex h-4 w-4 items-center justify-center" aria-hidden="true">
         <AnimatePresence initial={false} mode="popLayout">
           {copied ? (
