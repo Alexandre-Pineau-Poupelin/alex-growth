@@ -1,12 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import type { CaseStudy } from "@/data/caseStudies";
 import { Badge } from "@/components/ui/Badge";
 import { MetricStat } from "@/components/ui/MetricStat";
 import { PipelineDiagram } from "@/components/case-study/PipelineDiagram";
 import { CaseStudyDetail } from "@/components/case-study/CaseStudyDetail";
+import { spring } from "@/lib/motion";
 
 type CaseStudyCardProps = {
   caseStudy: CaseStudy;
@@ -14,15 +15,16 @@ type CaseStudyCardProps = {
 
 export function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
   const [expanded, setExpanded] = useState(false);
-  const shouldReduceMotion = useReducedMotion();
   const detailId = `${caseStudy.id}-detail`;
 
   return (
-    <article className="rounded-lg border border-border bg-surface p-6 sm:p-8">
+    <article className="rounded-xl border border-border bg-surface p-6 sm:p-8">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
           <p className="font-mono text-sm text-muted">{caseStudy.index}</p>
-          <h3 className="mt-2 text-xl font-medium text-fg sm:text-2xl">{caseStudy.title}</h3>
+          <h3 className="mt-2 text-xl font-semibold tracking-[-0.015em] text-fg sm:text-2xl">
+            {caseStudy.title}
+          </h3>
           <p className="mt-1 text-sm text-muted">
             {caseStudy.company} — {caseStudy.period}
           </p>
@@ -40,18 +42,15 @@ export function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
         ))}
       </ul>
 
+      {/* Pas de bandeau « pas de métrique » : le badge de résultat le dit déjà, et le
+          répéter en italique attire l'œil sur ce qui manque plutôt que sur ce qui a été fait. */}
       {caseStudy.stats.length > 0 ? (
         <div className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-4">
           {caseStudy.stats.map((stat) => (
             <MetricStat key={stat.label} value={stat.value} label={stat.label} />
           ))}
         </div>
-      ) : (
-        <p className="mt-8 border-l-2 border-border pl-4 text-sm italic text-muted">
-          Pas de métrique chiffrée disponible pour cette histoire — voir le détail pour le
-          résultat qualitatif assumé.
-        </p>
-      )}
+      ) : null}
 
       <div className="mt-8">
         <PipelineDiagram steps={caseStudy.pipeline} />
@@ -62,27 +61,45 @@ export function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
         onClick={() => setExpanded((v) => !v)}
         aria-expanded={expanded}
         aria-controls={detailId}
-        className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-fg underline decoration-border underline-offset-4 hover:text-accent hover:decoration-accent"
+        className="group -mx-2 mt-6 inline-flex min-h-11 items-center gap-2 rounded-md px-2 text-sm font-medium text-fg transition-[color,transform] duration-100 hover:text-accent active:scale-[0.98]"
       >
-        {expanded ? "Masquer le détail" : "Voir le détail"}
-        <span aria-hidden="true">{expanded ? "↑" : "↓"}</span>
+        <span className="underline decoration-border underline-offset-4 group-hover:decoration-accent">
+          {expanded ? "Masquer le détail" : "Voir le détail"}
+        </span>
+        <motion.svg
+          aria-hidden="true"
+          viewBox="0 0 16 16"
+          width="14"
+          height="14"
+          fill="none"
+          initial={false}
+          animate={{ rotate: expanded ? 180 : 0 }}
+          transition={spring.snappy}
+        >
+          <path
+            d="M4 6l4 4 4-4"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </motion.svg>
       </button>
 
+      {/* Ressort sans rebond : interruptible — recliquer pendant l'ouverture repart
+          de la hauteur affichée, sans attendre la fin de l'animation. */}
       <AnimatePresence initial={false}>
         {expanded ? (
-          shouldReduceMotion ? (
+          <motion.div
+            key="detail"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={spring.snappy}
+            style={{ overflow: "hidden" }}
+          >
             <CaseStudyDetail caseStudy={caseStudy} id={detailId} />
-          ) : (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              style={{ overflow: "hidden" }}
-            >
-              <CaseStudyDetail caseStudy={caseStudy} id={detailId} />
-            </motion.div>
-          )
+          </motion.div>
         ) : null}
       </AnimatePresence>
     </article>

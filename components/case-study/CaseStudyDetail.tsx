@@ -29,9 +29,19 @@ export function CaseStudyDetail({ caseStudy, id }: CaseStudyDetailProps) {
         );
       })}
 
-      <div className="rounded-md border border-dashed border-border p-6 text-center text-sm text-muted">
-        {caseStudy.screenshotPlaceholder}
-      </div>
+      {/* Les captures ne s'affichent que lorsqu'elles existent vraiment : un cadre
+          « emplacement réservé » donne au recruteur l'impression d'un site inachevé. */}
+      {caseStudy.screenshot ? (
+        <figure className="overflow-hidden rounded-lg border border-border">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={caseStudy.screenshot.src}
+            alt={caseStudy.screenshot.alt}
+            loading="lazy"
+            className="w-full"
+          />
+        </figure>
+      ) : null}
     </div>
   );
 }
