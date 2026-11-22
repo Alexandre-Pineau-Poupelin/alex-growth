@@ -3,6 +3,7 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { siteConfig } from "@/data/content";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import { MotionProvider } from "@/components/theme/MotionProvider";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
@@ -47,7 +48,12 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${GeistSans.variable} ${GeistMono.variable}`} suppressHydrationWarning>
       <body className="flex min-h-screen flex-col font-sans antialiased">
+        {/* Sans JavaScript, les blocs animés restent visibles au lieu de rester à opacity: 0. */}
+        <noscript>
+          <style>{`[data-reveal]{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
         <ThemeProvider>
+          <MotionProvider>
           <a
             href="#main-content"
             className="sr-only-focusable fixed left-4 top-4 z-[60] rounded-md bg-fg px-4 py-2 text-sm text-bg"
@@ -59,6 +65,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          </MotionProvider>
         </ThemeProvider>
       </body>
     </html>
