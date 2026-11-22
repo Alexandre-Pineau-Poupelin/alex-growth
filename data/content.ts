@@ -39,7 +39,6 @@ export type SiteContent = {
     badge: string;
     subtitle: string;
     primaryCta: string;
-    secondaryCta: string;
     tags: string[];
     proof: Stat[];
   };
@@ -73,7 +72,6 @@ export type SiteContent = {
     statement: string;
     roles: string;
     calendlyLabel: string;
-    emailLabel: string;
     availabilityLabel: string;
     availability: string;
     locationLabel: string;
@@ -135,7 +133,6 @@ export const content: Record<Locale, SiteContent> = {
       subtitle:
         "Je construis des systèmes d'acquisition, de la pub à la signature. SEA, SEO, tracking, CRM et automatisation IA.",
       primaryCta: "Réserver 30 min",
-      secondaryCta: "Écrire un email",
       tags: [
         "Growth Marketing",
         "Acquisition payante (Google Ads, Meta Ads)",
@@ -210,14 +207,14 @@ export const content: Record<Locale, SiteContent> = {
         { label: "Automatisation et CRM", tools: ["n8n", "HubSpot", "Brevo"] },
         { label: "Vente", tools: ["Appel SDR", "Devis"] },
         { label: "Facturation", tools: ["Pennylane"] },
-        { label: "Pilotage", tools: ["Looker Studio"] },
+        { label: "Pilotage", tools: ["Looker Studio", "Claude"] },
       ],
     },
     caseStudiesHeading: {
       eyebrow: "Études de cas",
       title: "Ce que j'ai construit",
       description:
-        "Cinq cas, chacun en trois temps : le problème, ce que j'ai construit, et comment. Les chiffres sont ceux de mon CV.",
+        "Quatre cas, chacun en trois temps : le problème, ce que j'ai construit, et comment. Les chiffres sont ceux de mon CV.",
     },
     caseLabels: {
       problem: "Problème",
@@ -242,12 +239,10 @@ export const content: Record<Locale, SiteContent> = {
     educationHeading: { eyebrow: "Formation", title: "Diplômes et certifications" },
     contact: {
       eyebrow: "Contact",
-      statement:
-        "Je n'optimise pas des annonces. J'optimise la façon dont une entreprise trouve ses clients.",
+      statement: "Je construis des systèmes sur mesure.",
       roles:
         "Je cherche un CDI de Growth Marketing Manager, Responsable acquisition, Marketing Ops ou Demand Generation, dans l'Hérault ou en télétravail.",
       calendlyLabel: "Réserver un échange de 30 min",
-      emailLabel: "Écrire un email",
       availabilityLabel: "Disponibilité",
       availability: "Disponible · CDI",
       locationLabel: "Localisation",
@@ -308,7 +303,6 @@ export const content: Record<Locale, SiteContent> = {
       subtitle:
         "I build acquisition systems, from the ad to the signed deal. Paid search, SEO, tracking, CRM and AI automation.",
       primaryCta: "Book 30 min",
-      secondaryCta: "Send an email",
       tags: [
         "Growth Marketing",
         "Paid acquisition (Google Ads, Meta Ads)",
@@ -383,14 +377,14 @@ export const content: Record<Locale, SiteContent> = {
         { label: "Automation and CRM", tools: ["n8n", "HubSpot", "Brevo"] },
         { label: "Sales", tools: ["SDR call", "Quote"] },
         { label: "Invoicing", tools: ["Pennylane"] },
-        { label: "Reporting", tools: ["Looker Studio"] },
+        { label: "Reporting", tools: ["Looker Studio", "Claude"] },
       ],
     },
     caseStudiesHeading: {
       eyebrow: "Case studies",
       title: "What I built",
       description:
-        "Five cases, each in three parts: the problem, what I built, and how. The figures match my résumé.",
+        "Four cases, each in three parts: the problem, what I built, and how. The figures match my résumé.",
     },
     caseLabels: {
       problem: "Problem",
@@ -415,11 +409,10 @@ export const content: Record<Locale, SiteContent> = {
     educationHeading: { eyebrow: "Education", title: "Degrees and certifications" },
     contact: {
       eyebrow: "Contact",
-      statement: "I don't optimize ads. I optimize how companies acquire customers.",
+      statement: "I build tailor-made systems.",
       roles:
         "I'm looking for a permanent role as Growth Marketing Manager, Head of Acquisition, Marketing Ops or Demand Generation, in Hérault (France) or remote.",
       calendlyLabel: "Book a 30-minute call",
-      emailLabel: "Send an email",
       availabilityLabel: "Availability",
       availability: "Available · Permanent role",
       locationLabel: "Location",

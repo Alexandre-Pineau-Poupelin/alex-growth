@@ -48,6 +48,7 @@ export const skillBlocks: Record<Locale, SkillBlock[]> = {
         "Conversions hors ligne Google Ads",
         "Looker Studio",
         "BigQuery",
+        "Reporting avec Claude",
       ],
     },
     {
@@ -110,6 +111,7 @@ export const skillBlocks: Record<Locale, SkillBlock[]> = {
         "Google Ads offline conversions",
         "Looker Studio",
         "BigQuery",
+        "Reporting with Claude",
       ],
     },
     {

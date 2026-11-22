@@ -109,7 +109,7 @@ export const salesMachine: Record<Locale, SalesMachineDiagram> = {
       sdrTitle: "Scoring final du SDR",
       outcomes: [
         { sdr: "Rendez-vous", temperature: "Lead chaud", next: "Passage à l'account executive", tone: "hot" },
-        { sdr: "À rappeler", temperature: "Lead tiède", next: "Reste en nurturing", tone: "warm" },
+        { sdr: "À rappeler", temperature: "Lead tiède", next: "Passage aux SDR", tone: "warm" },
         { sdr: "Pas intéressé", temperature: "Lead froid", next: "Reste en nurturing", tone: "cold" },
         { sdr: "Pas du tout intéressé", temperature: "Lead OUT", next: "Écarté", tone: "out" },
       ],
@@ -203,7 +203,7 @@ export const salesMachine: Record<Locale, SalesMachineDiagram> = {
       sdrTitle: "Final SDR scoring",
       outcomes: [
         { sdr: "Meeting booked", temperature: "Hot lead", next: "Handed to the account executive", tone: "hot" },
-        { sdr: "Call back", temperature: "Warm lead", next: "Stays in nurturing", tone: "warm" },
+        { sdr: "Call back", temperature: "Warm lead", next: "Back to the SDRs", tone: "warm" },
         { sdr: "Not interested", temperature: "Cold lead", next: "Stays in nurturing", tone: "cold" },
         { sdr: "Not interested at all", temperature: "OUT lead", next: "Removed", tone: "out" },
       ],
