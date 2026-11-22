@@ -1,15 +1,17 @@
-import { siteConfig } from "@/data/content";
+import { content, siteConfig } from "@/data/content";
+import type { Locale } from "@/data/i18n";
 
-export function Footer() {
+export function Footer({ locale }: { locale: Locale }) {
   const year = new Date().getFullYear();
+  const { contact } = content[locale];
 
   return (
     <footer className="border-t border-border">
       <div className="mx-auto flex max-w-content flex-col gap-4 px-6 py-10 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
         <p>
-          © {year} {siteConfig.name}
+          © {year} {siteConfig.name} · {siteConfig.title}
         </p>
-        <div className="flex flex-wrap items-center gap-6">
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
           <a href={`mailto:${siteConfig.email}`} className="hover:text-fg">
             {siteConfig.email}
           </a>
@@ -21,7 +23,7 @@ export function Footer() {
           >
             LinkedIn
           </a>
-          <span>{siteConfig.location}</span>
+          <span>{contact.location}</span>
         </div>
       </div>
     </footer>

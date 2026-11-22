@@ -1,8 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { nav, siteConfig } from "@/data/content";
+import { content, siteConfig } from "@/data/content";
+import type { Locale } from "@/data/i18n";
+import { LanguageToggle } from "@/components/i18n/LanguageToggle";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
@@ -34,9 +36,9 @@ function useActiveSection(ids: string[]) {
   return active;
 }
 
-const sectionIds = nav.map((item) => item.href.slice(1));
-
-export function Header() {
+export function Header({ locale }: { locale: Locale }) {
+  const { nav, ui } = content[locale];
+  const sectionIds = useMemo(() => nav.map((item) => item.href.slice(1)), [nav]);
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const active = useActiveSection(sectionIds);
@@ -69,7 +71,7 @@ export function Header() {
           {siteConfig.shortName}
         </a>
 
-        <nav aria-label="Sections de la page" className="hidden items-center gap-1 md:flex">
+        <nav aria-label={ui.navLabel} className="hidden items-center gap-1 lg:flex">
           {nav.map((item) => {
             const isActive = active === item.href.slice(1);
             return (
@@ -95,22 +97,25 @@ export function Header() {
           })}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
-          <ThemeToggle />
-          <Button
-            href={siteConfig.calendly}
-            target="_blank"
-            rel="noreferrer noopener"
-            className="px-4 py-2"
-          >
-            Prendre RDV
-          </Button>
-        </div>
+        <div className="flex items-center gap-2 sm:gap-3">
+          {/* FR / EN reste visible sur mobile, à côté du bouton de menu. */}
+          <LanguageToggle locale={locale} label={ui.languageLabel} />
+          <div className="hidden items-center gap-3 lg:flex">
+            <ThemeToggle labelToLight={ui.themeToLight} labelToDark={ui.themeToDark} />
+            <Button
+              href={siteConfig.calendly}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="px-4 py-2"
+            >
+              {ui.bookShort}
+            </Button>
+          </div>
 
         <button
           type="button"
-          className="flex h-11 w-11 items-center justify-center rounded-md border border-border transition-transform duration-100 active:scale-95 md:hidden"
-          aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
+          className="flex h-10 w-10 items-center justify-center rounded-md border border-border transition-transform duration-100 active:scale-95 lg:hidden"
+          aria-label={open ? ui.menuClose : ui.menuOpen}
           aria-expanded={open}
           aria-controls="mobile-menu"
           onClick={() => setOpen((v) => !v)}
@@ -134,6 +139,7 @@ export function Header() {
             />
           </svg>
         </button>
+        </div>
       </div>
 
       {/* Le menu descend du header et y remonte par le même chemin. Interruptible :
@@ -147,9 +153,9 @@ export function Header() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={spring.snappy}
-            className="overflow-hidden border-t border-border md:hidden"
+            className="overflow-hidden border-t border-border lg:hidden"
           >
-            <nav aria-label="Sections de la page" className="flex flex-col px-6 py-3">
+            <nav aria-label={ui.navLabel} className="flex flex-col px-6 py-3">
               {nav.map((item) => (
                 <a
                   key={item.href}
@@ -171,9 +177,9 @@ export function Header() {
                   rel="noreferrer noopener"
                   className="px-4 py-2.5"
                 >
-                  Prendre RDV
+                  {ui.bookShort}
                 </Button>
-                <ThemeToggle />
+                <ThemeToggle labelToLight={ui.themeToLight} labelToDark={ui.themeToDark} />
               </div>
             </nav>
           </motion.div>
