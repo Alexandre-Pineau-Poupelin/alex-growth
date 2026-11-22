@@ -43,12 +43,10 @@ export function Hero({ locale }: { locale: Locale }) {
               {hero.primaryCta}
               <span aria-hidden="true">→</span>
             </Button>
-            <Button href={`mailto:${siteConfig.email}`} variant="outline" className="px-6 py-3">
-              {hero.secondaryCta}
-            </Button>
             <CopyEmailButton
               email={siteConfig.email}
-              className="-ml-3 px-3 py-3 text-muted sm:ml-0"
+              variant="outline"
+              className="px-6 py-3"
               labels={{ copy: ui.copyEmail, copied: ui.emailCopied, copiedLive: ui.emailCopiedLive }}
             />
           </div>
