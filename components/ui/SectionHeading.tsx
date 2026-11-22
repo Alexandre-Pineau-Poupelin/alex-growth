@@ -10,7 +10,9 @@ export function SectionHeading({ eyebrow, title, description }: SectionHeadingPr
       {eyebrow ? (
         <p className="mb-3 font-mono text-sm text-muted">{eyebrow}</p>
       ) : null}
-      <h2 className="text-2xl font-medium tracking-tight text-fg sm:text-3xl">{title}</h2>
+      <h2 className="text-3xl font-semibold leading-tight tracking-[-0.025em] text-fg sm:text-4xl">
+        {title}
+      </h2>
       {description ? (
         <p className="mt-3 text-base leading-relaxed text-muted">{description}</p>
       ) : null}
